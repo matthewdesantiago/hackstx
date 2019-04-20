@@ -1,10 +1,13 @@
 var express = require('express');
 var app = express();
+var path = require('path');
 
-app.use(express.static('public'))
+app.use(express.static('../public'));
+app.set('public', path.join('../public/'));
 
 app.get('/', function(req, res) {
-    res.send('Hello World');
+    console.log(__dirname);
+    res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
 app.post('/register', function(req, res){
