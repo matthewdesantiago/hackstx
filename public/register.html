@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
+    <style>
+.indent{
+    margin-left: 100px;
+}
+.barsInd{
+    margin-left: 20px;
+}
+.emailInd{
+    margin-left: 47pt;
+}
+.passwrdInd{
+    margin-left: 26px;
+}
+    
+    </style>
     <head>
         <title>Register!</title>
     </head>
     <body>
+    <div class="indent">
+        <h1>Register</h1>
         <form method="POST" action="register.html">
-            <input type="text" name="name" placeholder="Full Name">
-            <input type="email" name="email" placeholder="Email">
-            <input type="password" name="password" placeholder="Password">
+            <h2>Full name <input class="barsInd" type="text" name="name" placeholder="Full Name"></h2>
+            <h2>Email <input class="emailInd" type="email" name="email" placeholder="Email"></h2>
+            <h2>Password <input class="passwrdInd" type="password" name="password" placeholder="Password"></h2>
             <input type="submit" name="Submit">
         </form>
+    </div>
     </body>
 </html>
