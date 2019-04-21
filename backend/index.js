@@ -4,6 +4,7 @@ var path = require('path');
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb+srv://freecode:freecode@cluster0-gryzz.azure.mongodb.net/freecode?retryWrites=true';
 const mongo = require('mongodb').MongoClient;
+let userModel = require('./user');
 
 
 app.use(express.static('../public'));
@@ -13,12 +14,21 @@ app.set('public', path.join('../public/'));
 
 
 //set up mongo data base
-mongo.connect(mongoDB, {useNewUrlParser: true});
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongo.connect(mongoDB, (err, client) => {
+    if(err){
+        console.error(err)
+        return
+    }
+    var db = client.db('freecode');
+    const collection = db.collection('users');
+    collection.insertOne({name: 'daniel'}, (err, result) => {
+        console.error(err)
+    });
+});
 
 
 
+console.log("past function");
 //serve home page
 app.get('/', function(req, res) {
     console.log(__dirname);
