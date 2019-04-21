@@ -12,7 +12,6 @@ app.set('public', path.join('../public/'));
 
 //serve home page
 app.get('/', function(req, res) {
-    console.log(__dirname);
     res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
@@ -40,7 +39,7 @@ app.post('/register.html', function(req, res) {
         });
     });
 
-    res.sendFile();
+    res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
 //listen on server port 3000
